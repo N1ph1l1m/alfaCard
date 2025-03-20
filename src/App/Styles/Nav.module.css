@@ -1,0 +1,29 @@
+.navWrap{
+    width: 100%;
+    height: 80px;
+    /* border:1px solid blue; */
+    padding: 15px;
+}
+.listNavWrap{
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:0 20px;
+}
+.listItem{
+    padding: 10px;
+    border:1px solid #ffffff;
+    font-size: 18px;
+    font-weight:500;
+    border-radius: 10px;
+    background-color:rgb(56,96,194);
+    color: #Ffffff;
+    cursor: pointer;
+}
+.listItem:hover{
+    color:rgb(101,210,254) ;
+}

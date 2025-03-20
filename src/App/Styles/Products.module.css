@@ -1,0 +1,11 @@
+.wrapProducts{
+    margin: 0px auto;
+    padding: 10px;
+    width: 50%;
+    height: 90%;
+    border:1px solid red;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0px 20px;
+}
