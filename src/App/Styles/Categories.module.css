@@ -1,0 +1,19 @@
+.categoriesWrap{
+    width: 200px;
+    height: 200px;
+    border:1px solid gray;
+    border-radius:10px;
+
+}
+.catTitle{
+font-size: 30px;
+font-weight: 500;
+margin: 10px;
+}
+.catLi{
+    font-size: 22px;
+    cursor:pointer;
+    background: linear-gradient(to right, rgb(209, 209, 209), white);
+    padding: 5px;
+    margin-bottom: 10px;
+}

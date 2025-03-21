@@ -4,10 +4,15 @@ import {Nav} from "../../Widget/Nav/Nav";
 
 export const MainLayout = () => {
   return (
-    <div className={styles.appWrap}>
-      <Nav />
+    <>
+    <div className={styles.headerWrap}>
+    <Nav />
+    </div>
+        <div className={styles.contentWrap}>
 
       <Outlet />
     </div>
+    </>
+
   );
 };
