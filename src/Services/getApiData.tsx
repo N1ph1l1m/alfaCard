@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setShopState } from "../Store/Slice/ShopSlice/ShopSlice";
-import { setCategoryState } from "../Store/Slice/CategorySlice/CategorySlice";
+import { setCategoryState,setMenuCategory} from "../Store/Slice/CategorySlice/CategorySlice";
 
 
 export const getData = async (dispatch) => {
@@ -21,6 +21,19 @@ export const getCategories = async (dispatch,category) => {
     try {
       const response = await axios.get(url);
       dispatch(setCategoryState (response.data));
+      console.log(response.status);
+    } catch (error) {
+      console.error("Ошибка загрузки данных:", error);
+    }
+  };
+
+
+  export const getMenuCategory = async (dispatch) => {
+    console.log("get category")
+    const url = `https://api.escuelajs.co/api/v1/categories`;
+    try {
+      const response = await axios.get(url);
+      dispatch(setMenuCategory(response.data));
       console.log(response.status);
     } catch (error) {
       console.error("Ошибка загрузки данных:", error);

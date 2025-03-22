@@ -2,13 +2,13 @@ import styles from "../../App/Styles/ProductItem.module.css";
 import { Favorites } from "./Favorites/Favotires";
 
 interface IProductItem {
-  img: string;
+  images: string;
   title: string;
   description: string;
   price: number;
 }
 export const ProductItem = ({
-  img,
+  images,
   title,
   description,
   price,
@@ -17,7 +17,7 @@ export const ProductItem = ({
     <div className={styles.wrapItem}>
       <div className={styles.borderCard}>
         <div className={styles.wrapImg}>
-          <img src={img} className={styles.imgItem} />
+          <img src={images} className={styles.imgItem} />
         </div>
 
         <p className={styles.titleCard}>{title}</p>

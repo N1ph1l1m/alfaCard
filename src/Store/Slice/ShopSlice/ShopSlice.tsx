@@ -1,13 +1,25 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice ,  PayloadAction} from "@reduxjs/toolkit";
+
+
+interface IProductItem {
+    images: string;
+    title: string;
+    description: string;
+    price: number;
+  }
+interface IShopSlice{
+    shopState:IProductItem[]
+}
+  const initialState:IShopSlice={
+    shopState:[]
+  }
 
 const shopSlice = createSlice({
     name:"shop",
-    initialState:{
-        shopState:[],
-    },
+    initialState,
     reducers:{
-        setShopState(state,action){
-            state.shopState = action;
+        setShopState(state,actions:PayloadAction<IProductItem[]>){
+            state.shopState = actions.payload;
         }
     }
 })

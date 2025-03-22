@@ -1,26 +1,36 @@
-import  styles from "../../../App/Styles/Categories.module.css"
-import { useDispatch } from "react-redux"
-import { setCategoryType } from "../../../Store/Slice/CategorySlice/CategorySlice"
-import { useEffect } from "react"
-interface ICategories{
-    list:string[],
-    active:string,
-}
+import styles from "../../../App/Styles/Categories.module.css";
+import { useDispatch } from "react-redux";
+import { setCategoryType } from "../../../Store/Slice/CategorySlice/CategorySlice";
+import { useEffect } from "react";
 
+export const Categories = ({ list, active }) => {
+    const dispatch = useDispatch();
 
-export const Categories = ({list,active}:ICategories) => {
-    const dispatch = useDispatch()
+    // Ensure list is an array before calling map
+    if (!Array.isArray(list)) {
+        console.error("Expected 'list' to be an array but got", typeof list);
+        return null; // or display some fallback UI if desired
+    }
+
     return (
         <div className={styles.categoriesWrap}>
-            <h3 className={styles.catTitle}> Categories:</h3>
+            <h3 className={styles.catTitle}>Categories:</h3>
             <ul>
-                {list.map((item , index)=>(
+                {list.map((item, index) => (
                     <li
-                    key={index}
-                    style={{borderLeft:`${active === item.toLocaleLowerCase() ? " 3px solid rgb(129, 14, 245)": "0px "}  `}}
-                    className={styles.catLi}
-                    onClick={()=>dispatch(setCategoryType(item.toLocaleLowerCase()))}
-                    >{item}</li>
+                        key={index}
+                        style={{
+                            borderLeft: `${
+                                active === item.name.toLocaleLowerCase()
+                                    ? "3px solid rgb(129, 14, 245)"
+                                    : "0px"
+                            }`,
+                        }}
+                        className={styles.catLi}
+                        onClick={() => dispatch(setCategoryType(item.name.toLocaleLowerCase()))}
+                    >
+                        {item.name}
+                    </li>
                 ))}
             </ul>
         </div>
