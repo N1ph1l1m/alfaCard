@@ -12,6 +12,8 @@ export const ProductItem = ({
   title,
   description,
   price,
+  onClick,
+  isLike,
 }: IProductItem) => {
   return (
     <div className={styles.wrapItem}>
@@ -29,7 +31,7 @@ export const ProductItem = ({
             <p>{price} $</p>
           </div>
 
-          <Favorites />
+          <Favorites onClick={onClick} isLike={isLike} />
         </div>
       </div>
     </div>

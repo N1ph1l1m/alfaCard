@@ -1,10 +1,11 @@
 import styles from  "../../App/Styles/MainPage.module.css"
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../../Services/getApiData";
 import { RootState } from "../../Store";
 import { ProductItem } from "../../Shared/ProductItem/ProductItem";
 import { getMenuCategory , getCategories } from "../../Services/getApiData";
+import { setFavoriteState } from "../../Store/Slice/ShopSlice/ShopSlice";
 
 import Loader from "../../Shared/Loader/Loader";
 
@@ -37,6 +38,8 @@ export const MainPage = () => {
             images={item.images[0]}
             description={item.description}
             price={item.price}
+            onClick={()=>{dispatch(setFavoriteState(item.id))}}
+            isLike={item.favorite}
           />
         ))}</>)
     }else{

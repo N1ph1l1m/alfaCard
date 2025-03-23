@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IProduct{
+    id:number,
     title: string;
     images: string[];
     description: string;
     price: number;
+    favorite:boolean;
 }
 
 interface IProductMenu{
@@ -20,7 +22,7 @@ interface ICategory{
 }
 
 const initialState:ICategory = {
-        typeCategory:"shoes",
+        typeCategory:"electronics",
         category:[],
         menuCategory:[], 
 }
@@ -29,19 +31,27 @@ const categorySlice   = createSlice({
     name:'category',
     initialState,
     reducers:{
-        setCategoryState(state,actions:PayloadAction<IProduct[]>){
-            state.category = actions.payload;
+        setCategoryState(state,actions:PayloadAction<Omit<IProduct,"favorite">[]>){
+            state.category = actions.payload.map(item=>({
+                ...item,
+                favorite:false
+            }))
         },
         setCategoryType(state,actions:PayloadAction<string>){
-            console.log(state.category)
             state.typeCategory = actions.payload;
         },
         setMenuCategory(state,actions:PayloadAction<IProductMenu[]>){
             state.menuCategory = actions.payload
-        }
+        },
+        setFavoriteCategoryState(state,actions: PayloadAction<number>) {
+            const product = state.category.find(item => item.id === actions.payload);
+            if (product) {
+                product.favorite = !product.favorite; 
+            }
+          },
 
     }
 
 })
-export const {setCategoryState,setCategoryType ,setMenuCategory} = categorySlice.actions
+export const {setCategoryState,setCategoryType ,setMenuCategory,setFavoriteCategoryState} = categorySlice.actions
 export default categorySlice.reducer;

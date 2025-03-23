@@ -1,15 +1,14 @@
 import styles from "../../../App/Styles/Categories.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setCategoryType } from "../../../Store/Slice/CategorySlice/CategorySlice";
-import { useEffect } from "react";
+
 
 export const Categories = ({ list, active }) => {
     const dispatch = useDispatch();
-
-    // Ensure list is an array before calling map
+   
     if (!Array.isArray(list)) {
         console.error("Expected 'list' to be an array but got", typeof list);
-        return null; // or display some fallback UI if desired
+        return null
     }
 
     return (
@@ -27,7 +26,9 @@ export const Categories = ({ list, active }) => {
                             }`,
                         }}
                         className={styles.catLi}
-                        onClick={() => dispatch(setCategoryType(item.name.toLocaleLowerCase()))}
+                        onClick={() => 
+                            dispatch(setCategoryType(item.name.toLocaleLowerCase()))
+                        }
                     >
                         {item.name}
                     </li>
