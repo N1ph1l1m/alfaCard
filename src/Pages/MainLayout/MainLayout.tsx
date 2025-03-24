@@ -8,9 +8,9 @@ export const MainLayout = () => {
     <div className={styles.headerWrap}>
     <Nav />
     </div>
-        <div className={styles.contentWrap}>
+      <div className={styles.contentWrap}>
 
-      <Outlet />
+      <Outlet/>
     </div>
     </>
 

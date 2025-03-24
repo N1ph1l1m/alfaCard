@@ -1,0 +1,119 @@
+.wrapProduct {
+  margin: 50px auto;
+  width: 1000px;
+  height: 400px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding:5px  20px;
+  border-radius: 10px;
+}
+.wrapLink{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.wrapHome{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.buttonLink{
+  padding: 10px;
+  border-radius:10px;
+}
+.wrapCard{
+  display: flex;
+  align-items:center;
+  width: 100%;
+  height: 100;
+}
+
+.wrapImage {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 35px;
+}
+.wrapGalary {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+
+  overflow: scroll auto;
+}
+.imagesGalary {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.imagesMain {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+.wrapCardInfo {
+  border:1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width:500px;
+  height: 300px;
+}
+.titleProduct {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.categoryProduct {
+  display: inline;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.descriptionProduct {
+  display: inline-block;
+  max-width: 500px;
+  max-height: 300px;
+  text-align: justify;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  vertical-align: bottom;
+}
+.footerProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  height: 50px;
+}
+.titleFooter {
+  color: gray;
+  font-size: 20px;
+  font-weight: 600px;
+}
+.priceTitle {
+  font-size: 25px;
+  font-weight: 600;
+}
+.buttonHome{
+  width: 100px;
+  padding: 5px;
+  display: inline;
+  font-size: 14px;
+  border-radius:10px;
+  background-color: gainsboro;
+}

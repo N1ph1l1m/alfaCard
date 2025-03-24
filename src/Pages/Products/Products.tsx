@@ -1,6 +1,6 @@
 import { useEffect,useRef } from "react";
 import { ProductItem } from "../../Shared/ProductItem/ProductItem";
-import { Categories } from "../../Shared/ProductItem/Categories/Categories";
+import { Categories } from "../../Shared/Categories/Categories";
 import { RootState } from "../../Store";
 import { getCategories } from "../../Services/getApiData";
 import { setFavoriteCategoryState } from "../../Store/Slice/CategorySlice/CategorySlice";
@@ -26,7 +26,7 @@ export const Products = () => {
     if(ref.current !== typeCategory) {
       getCategories(dispatch, typeCategory);
       ref.current = typeCategory;
-    }else return 
+    }else return
   }, [typeCategory]);
 
   const renderItems = () => {
@@ -42,6 +42,7 @@ export const Products = () => {
               price={item.price}
               onClick={()=>{dispatch(setFavoriteCategoryState(item.id))}}
               isLike={item.favorite}
+              link={`:${item.title}`}
             />
           ))}
         </>

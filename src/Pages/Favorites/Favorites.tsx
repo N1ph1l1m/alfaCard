@@ -3,13 +3,20 @@ import { ProductItem } from "../../Shared/ProductItem/ProductItem";
 import { setFavoriteState } from "../../Store/Slice/ShopSlice/ShopSlice";
 import { RootState } from "../../Store";
 import { useDispatch, useSelector } from "react-redux";
+import { Notification } from "../../Shared/Notification/Notification";
 export const Favorites = () => {
     const dispatch = useDispatch();
     const shopState  = useSelector((state:RootState)=>state.shopSlice.shopState)
     const category = useSelector((state:RootState)=>state.categorySlice.category)
-    
+    const favoiteCouunt  = shopState.filter(favorite=> favorite.favorite === true )
+    const categoryCouunt  = category.filter(favorite=> favorite.favorite === true )
+
+
+
+
     const renderItems = () =>{
-        if(shopState && shopState.length!==0 ){
+
+        if(favoiteCouunt && favoiteCouunt.length!==0  && categoryCouunt || categoryCouunt.length!==0  ){
             return(<>
            {[...shopState, ...category]
   .filter((item) => item.favorite === true)
@@ -26,7 +33,13 @@ export const Favorites = () => {
   ))}
             </>)
         }else{
-          return(  <p>The list of favorite cards is empty </p>)
+          return(
+          <Notification
+          style={{margin:"100px auto"}}
+            link={"/"}
+              title="The list of favorite cards is empty"
+             titleLink={"please go to the main menu and select the card"}/>
+          )
         }
       }
 

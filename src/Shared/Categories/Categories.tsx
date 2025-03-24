@@ -1,11 +1,11 @@
-import styles from "../../../App/Styles/Categories.module.css";
+import styles from "../../App/Styles/Categories.module.css"
 import { useDispatch} from "react-redux";
-import { setCategoryType } from "../../../Store/Slice/CategorySlice/CategorySlice";
+import { setCategoryType } from "../../Store/Slice/CategorySlice/CategorySlice";
 
 
 export const Categories = ({ list, active }) => {
     const dispatch = useDispatch();
-   
+
     if (!Array.isArray(list)) {
         console.error("Expected 'list' to be an array but got", typeof list);
         return null
@@ -26,7 +26,7 @@ export const Categories = ({ list, active }) => {
                             }`,
                         }}
                         className={styles.catLi}
-                        onClick={() => 
+                        onClick={() =>
                             dispatch(setCategoryType(item.name.toLocaleLowerCase()))
                         }
                     >

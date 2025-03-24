@@ -40,6 +40,7 @@ export const MainPage = () => {
             price={item.price}
             onClick={()=>{dispatch(setFavoriteState(item.id))}}
             isLike={item.favorite}
+            link={`products/:${item.title}`}
           />
         ))}</>)
     }else{
@@ -48,12 +49,8 @@ export const MainPage = () => {
   }
 
     return (
-        <div className={styles.mainPageWrap}>
            <div className={styles.wrapContent}>
             {renderItems()}
-
            </div>
-
-        </div>
     );
 };

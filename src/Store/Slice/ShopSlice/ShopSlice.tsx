@@ -11,11 +11,9 @@ interface IProductItem {
   }
 interface IShopSlice{
     shopState:IProductItem[],
-    favoriresState:never[],
 }
   const initialState:IShopSlice={
     shopState:[],
-    favoriresState:[],
   }
 
 const shopSlice = createSlice({
@@ -28,11 +26,11 @@ const shopSlice = createSlice({
                 favorite: false
             }));
         },
-     
+
           setFavoriteState(state,actions: PayloadAction<number>) {
             const product = state.shopState.find(item => item.id === actions.payload);
             if (product) {
-                product.favorite = !product.favorite; 
+                product.favorite = !product.favorite;
             }
           },
     }
