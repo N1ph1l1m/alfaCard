@@ -17,13 +17,14 @@ export const getData = async (dispatch: Dispatch<UnknownAction>) => {
 };
 
 
-export const getCategories = async (dispatch: Dispatch<UnknownAction>,category:string) => {
+export const getCategories = async (dispatch: Dispatch<UnknownAction>,category:string ) => {
     console.log('getCategory');
     const url = `https://api.escuelajs.co/api/v1/products/?categorySlug=${category}`;
     try {
       const response = await axios.get(url);
       dispatch(setCategoryState (response.data));
-      // console.log(response.status);
+
+
     } catch (error) {
       console.error("Ошибка загрузки данных:", error);
     }

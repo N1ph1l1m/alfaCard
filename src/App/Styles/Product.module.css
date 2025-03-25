@@ -18,6 +18,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+
 }
 .buttonLink{
   padding: 10px;
@@ -44,9 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
-
   overflow: scroll auto;
 }
 .imagesGalary {
@@ -61,7 +60,6 @@
   border-radius: 10px;
 }
 .wrapCardInfo {
-  border:1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -81,18 +79,19 @@
   font-size: 14px;
 }
 .descriptionProduct {
-  display: inline-block;
+  line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   max-width: 500px;
   max-height: 300px;
   text-align: justify;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 500;
   color: gray;
   vertical-align: bottom;
+  word-break: break-word;
 }
+
 .footerProduct {
   display: flex;
   flex-direction: column;
@@ -116,4 +115,128 @@
   font-size: 14px;
   border-radius:10px;
   background-color: gainsboro;
+}
+@media screen and (max-width:1050px) {
+  .wrapProduct{
+    width: 800px;
+    flex-wrap: wrap;
+   flex-direction: row;
+  }
+  .wrapImage{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:flex-start;
+    height: 300px;
+    gap: 0px;
+  }
+
+  .wrapGalary{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    overflow-y: scroll;
+  }
+  .imagesGalary{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+  }
+  .imagesMain {
+    width: 150px;
+    height:150px;
+
+  }
+}
+
+@media screen and (max-width:840px) {
+  .wrapProduct{
+    width: 600px;
+    height: auto;
+  }
+
+  .wrapCard{
+    flex-direction: column;
+    align-items:center;
+  }
+  .wrapCardInfo{
+    gap: 20px;
+  }
+  .wrapImage{
+    width: 100%;
+    height: 500px;
+  }
+  .imagesGalary{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0px;
+  }
+  .imagesMain {
+    width: 350px;
+    height:350px;
+
+  }
+}
+
+@media screen and (max-width:640px) {
+
+  .wrapProduct{
+    width: 400px;
+    flex-wrap: wrap;
+   flex-direction: row;
+   height:80%;
+  }
+  .wrapCard{
+    flex-direction: column;
+    align-items:center;
+  }
+  .imagesMain {
+    width: 300px;
+    height: 300px;
+  }
+  .wrapCardInfo{
+    gap: 20px;
+  }
+  .descriptionProduct {
+    line-clamp: 7;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .wrapProduct{
+    width: 250px;
+    flex-wrap: wrap;
+   flex-direction: row;
+   align-items:flex-start;
+   justify-content: flex-start;
+   height:80%;
+  }
+  .wrapCard{
+    flex-direction: column;
+    align-items:center;
+  }
+
+  .wrapImage{
+    width: 100%;
+    height: 300px;
+  }
+  .imagesGalary{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+  }
+  .imagesMain {
+    width: 150px;
+    height: 150px;
+  }
+  .titleProduct{
+    font-size: 20px;
+  }
+  .wrapCardInfo{
+    gap: 20px;
+  }
+  .descriptionProduct {
+    height: 98px;
+  }
 }

@@ -1,40 +1,46 @@
 import styles from "../../App/Styles/Nav.module.css"
-import axios from "axios";
-
+import { BurgerMenu } from "../../Shared/BurderMenu/BurgerMenu";
+import { useState } from "react";
 import { NavLink } from "react-router";
+
 export const Nav = () => {
 
-    // async function getData(){
-    //     const url:string =  "";
+    const[burger,setBurger]= useState(false)
 
-    //     const apiKey:string = 'beaa5519750583a59a89bc0df3e8960d'
-    //     try{
-    //         // const response  = await axios.get(url,{
-    //         //     params:{
-    //         //         apikey:apiKey,
-    //         //     }
+    function burgerLink(){
+        if (!burger) return
 
-    //         // })
-    //         console.log(response.data);
-    //     }catch(error){
-    //         console.error("Ошибка", error)
-    //     }
+        setBurger(prev => !prev);
+    }
 
-    // }
-    return (
-        <div className={styles.navWrap}>
+    const listNav = () =>{
+        return(<>
+         <NavLink to="/" onClick={()=>burgerLink()} ><li className={styles.listItem} >Home</li></NavLink>
+                <NavLink to="products/" onClick={()=>burgerLink()}><li className={styles.listItem}
+                >Products</li></NavLink>
+                <NavLink to="favorite/" onClick={()=>burgerLink()}><li className={styles.listItem}>Favorites</li></NavLink>
+        </>)
+    }
+
+    return (<>
+     <div  className={styles.navWrap}>
             <div className={styles.titleWrap}>
                 <h1 className={styles.titleName}>Alfa shop</h1>
             </div>
             <div className={styles.listWrap}>
             <ul className={styles.listNavWrap}>
-                <NavLink to="/"><li className={styles.listItem} >Home</li></NavLink>
-                <NavLink to="products/"><li className={styles.listItem}
-                >Products</li></NavLink>
-                <NavLink to="favorite/"><li className={styles.listItem}>Favorites</li></NavLink>
+                {listNav()}
             </ul>
+            <BurgerMenu    onChange={() => setBurger(prev => !prev)}  className={styles.burgerMenuWrap} checked={burger} />
             </div>
 
         </div>
+      {burger && (  <div className={styles.menu}>
+        <ul className={styles.listNavBurger}>
+            {listNav()}
+        </ul>
+      </div>)}
+    </>
+
     );
 };

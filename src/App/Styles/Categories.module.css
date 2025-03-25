@@ -17,3 +17,8 @@ margin: 10px;
     padding: 5px;
     margin-bottom: 10px;
 }
+@media screen and (max-width:870px) {
+    .categoriesWrap{
+        width: 100%;
+    }
+}

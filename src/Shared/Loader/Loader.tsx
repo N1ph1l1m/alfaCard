@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Loader = () => {
@@ -21,7 +20,7 @@ const StyledWrapper = styled.div`
     width: var(--dim);
     height: var(--dim);
     position: absolute;
-    top:200px;
+    margin:200px auto;
     animation: spin988 2s linear infinite;
   }
 

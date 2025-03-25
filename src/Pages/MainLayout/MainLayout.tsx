@@ -9,7 +9,6 @@ export const MainLayout = () => {
     <Nav />
     </div>
       <div className={styles.contentWrap}>
-
       <Outlet/>
     </div>
     </>

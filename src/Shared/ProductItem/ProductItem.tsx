@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import styles from "../../App/Styles/ProductItem.module.css";
 import { Favorites } from "../Favorites/Favotires";
 import { Link } from "react-router";
@@ -7,7 +8,9 @@ interface IProductItem {
   title: string;
   description: string;
   price: number;
-  link:string
+  link:string,
+  onClick:ChangeEventHandler<HTMLInputElement>,
+  isLike:boolean,
 }
 export const ProductItem = ({
   images,
@@ -34,7 +37,7 @@ export const ProductItem = ({
         <span className={styles.readMore}>Read more</span>
         </Link>
         <div className={styles.wrapPrice}>
-        <Link >
+        <Link  to={link}>
         <div>
             <p className={styles.priceTitle}>Price</p>
             <p className={styles.price}>{price} $</p>
