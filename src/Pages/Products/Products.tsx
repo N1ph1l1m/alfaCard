@@ -5,6 +5,7 @@ import { RootState } from "../../Store";
 import { getCategories, getMenuCategory } from "../../Services/getApiData";
 import { setFavoriteCategoryState } from "../../Store/Slice/CategorySlice/CategorySlice";
 import { useSelector, useDispatch } from "react-redux";
+import { Notification } from "../../Shared/Notification/Notification";
 import Loader from "../../Shared/Loader/Loader";
 import styles from "../../App/Styles/Products.module.css";
 
@@ -59,7 +60,9 @@ export const Products = () => {
         </>
       );
     } else {
-      return <p>Нет товаров</p>;
+      return <Notification
+      style={{margin:"100px auto"}}
+       title={"The list of products is empty"}/>;
     }
   };
 

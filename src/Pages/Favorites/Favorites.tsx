@@ -38,7 +38,7 @@ export const Favorites = () => {
           style={{margin:"100px auto"}}
             link={"/"}
               title="The list of favorite cards is empty"
-             titleLink={"please go to the main menu and select the card"}/>
+             titleLink={"please go to the main menu and select the card ->"}/>
           )
         }
       }

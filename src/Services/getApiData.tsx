@@ -36,7 +36,6 @@ export const getCategories = async (dispatch: Dispatch<UnknownAction>,category:s
     try {
       const response = await axios.get(url);
       dispatch(setMenuCategory(response.data));
-      // console.log(response.status);
     } catch (error) {
       console.error("Ошибка загрузки данных:", error);
     }

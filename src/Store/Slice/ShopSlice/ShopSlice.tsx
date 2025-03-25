@@ -33,7 +33,14 @@ const shopSlice = createSlice({
                 product.favorite = !product.favorite;
             }
           },
+          deleteItem(state,actions:PayloadAction<number>) {
+          const item = state.shopState.filter((item)=>item.id !== actions.payload )
+          state.shopState = item;
+          },
+          createItem(state,action){
+            state.shopState.push(action.payload)
+          }
     }
 })
-export const {setShopState,setFavoriteState} = shopSlice.actions
+export const {setShopState,setFavoriteState,deleteItem,createItem} = shopSlice.actions
 export default shopSlice.reducer;

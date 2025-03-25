@@ -7,6 +7,7 @@ import {Products} from './Pages/Products/Products'
 import { Product } from './Pages/Product/Product'
 import {MainPage} from './Pages/Main/Main'
 import {Favorites} from './Pages/Favorites/Favorites'
+import { CreateItem } from './Pages/CreateItem/CreateItem'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='products/' element={<Products/>}/>
       <Route path='products/:title/' element={<Product/>}/>
       <Route path='favorite/' element={<Favorites/>}/>
+      <Route path='create-product/' element={<CreateItem/>}/>
     </Route>
    </Routes>
    </>

@@ -4,6 +4,7 @@
     border:1px solid gray;
     border-radius: 10px;
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 .borderCard{
@@ -11,6 +12,10 @@
     height: 100%;
     margin: 0px auto;
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .wrapImg{
     margin: 10px auto;
@@ -54,6 +59,17 @@
     flex-direction: row;
     align-items:center;
     justify-content: space-between;
+}
+.wrapFavorite{
+
+    width: 70px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+}
+.trash{
+    /* display: none; */
+   margin-right: 10px;
 }
 .priceTitle{
     margin-top: 10px;

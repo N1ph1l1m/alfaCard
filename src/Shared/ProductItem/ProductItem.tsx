@@ -2,15 +2,19 @@ import { ChangeEventHandler } from "react";
 import styles from "../../App/Styles/ProductItem.module.css";
 import { Favorites } from "../Favorites/Favotires";
 import { Link } from "react-router";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { useState } from "react";
 
 interface IProductItem {
   images: string;
   title: string;
   description: string;
   price: number;
-  link:string,
+  link?:string,
   onClick:ChangeEventHandler<HTMLInputElement>,
+  deleteItem:MouseEventHandler<SVGElement>,
   isLike:boolean,
+  key:number,
 }
 export const ProductItem = ({
   images,
@@ -18,11 +22,16 @@ export const ProductItem = ({
   description,
   price,
   onClick,
+  deleteItem,
   isLike,
   link,
+  key
 }: IProductItem) => {
+  const [isTrachIcon,setTrashIcon] = useState(false)
   return (
-    <div className={styles.wrapItem}>
+    <div onMouseEnter={()=>setTrashIcon(true)} 
+      onMouseLeave={()=>setTrashIcon(false)}
+    key={key} className={styles.wrapItem}>
 
       <div className={styles.borderCard}>
         <Link to={link}>
@@ -44,8 +53,15 @@ export const ProductItem = ({
           </div>
         </Link>
 
+      <div className={styles.wrapFavorite}>
+      <FaRegTrashAlt 
+        onClick={deleteItem}
+      style={{display:isTrachIcon ? "block": "none"}} className={styles.trash} size={20} color={"black"}/>
+      <Favorites onClick={onClick} isLike={isLike} />
 
-          <Favorites onClick={onClick} isLike={isLike} />
+      </div>
+
+          
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { getData } from "../../Services/getApiData";
 import { RootState } from "../../Store";
 import { ProductItem } from "../../Shared/ProductItem/ProductItem";
 import { getMenuCategory , getCategories } from "../../Services/getApiData";
-import { setFavoriteState } from "../../Store/Slice/ShopSlice/ShopSlice";
+import { setFavoriteState , deleteItem} from "../../Store/Slice/ShopSlice/ShopSlice";
 
 import Loader from "../../Shared/Loader/Loader";
 
@@ -39,6 +39,7 @@ export const MainPage = () => {
             description={item.description}
             price={item.price}
             onClick={()=>{dispatch(setFavoriteState(item.id))}}
+            deleteItem={()=>{dispatch(deleteItem(item.id))}}
             isLike={item.favorite}
             link={`products/:${item.title}`}
           />

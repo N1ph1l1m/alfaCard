@@ -1,8 +1,14 @@
-import React from 'react';
+import  { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
-export const Notification = ({title,titleLink,link,style}) => {
+interface INotification{
+  title:string,
+  titleLink?:string,
+  link?:string,
+  style?:DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+}
+export const Notification = ({title,titleLink,link,style}:INotification) => {
   return (
     <StyledWrapper>
       <div  style={style}className="notifications-container">
@@ -16,7 +22,7 @@ export const Notification = ({title,titleLink,link,style}) => {
             <div className="info-prompt-wrap">
               <p >
                 {title}<br/>
-                <Link to={link}> <span className="info-prompt-link">{titleLink} →</span></Link>
+                <Link to={link}> <span className="info-prompt-link">{titleLink}</span></Link>
               </p>
             </div>
           </div>
