@@ -15,7 +15,7 @@ function App() {
   return (
    <>
    <Routes>
-    <Route path='/' element={<MainLayout/>}>
+    <Route path='alfaCard/' element={<MainLayout/>}>
       <Route index  element={<MainPage/>}/>
       <Route path='products/' element={<Products/>}/>
       <Route path='products/:title/' element={<Product/>}/>
