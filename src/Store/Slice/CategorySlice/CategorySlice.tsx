@@ -10,7 +10,8 @@ interface IProduct{
 }
 
 interface IProductMenu{
-   name:string
+   name:string,
+   id:number,
 }
 
 

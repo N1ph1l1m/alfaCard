@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, MouseEventHandler } from "react";
 import styles from "../../App/Styles/ProductItem.module.css";
 import { Favorites } from "../Favorites/Favotires";
 import { Link } from "react-router";
@@ -10,11 +10,10 @@ interface IProductItem {
   title: string;
   description: string;
   price: number;
-  link?:string,
-  onClick:ChangeEventHandler<HTMLInputElement>,
-  deleteItem:MouseEventHandler<SVGElement>,
-  isLike:boolean,
-  key:number,
+  link?: string;
+  onClick: ChangeEventHandler<HTMLInputElement>;
+  deleteItem?: MouseEventHandler<SVGElement>;
+  isLike: boolean;
 }
 export const ProductItem = ({
   images,
@@ -25,43 +24,43 @@ export const ProductItem = ({
   deleteItem,
   isLike,
   link,
-  key
 }: IProductItem) => {
-  const [isTrachIcon,setTrashIcon] = useState(false)
+  const [isTrachIcon, setTrashIcon] = useState(false);
   return (
-    <div onMouseEnter={()=>setTrashIcon(true)} 
-      onMouseLeave={()=>setTrashIcon(false)}
-    key={key} className={styles.wrapItem}>
-
+    <div
+      onMouseEnter={() => setTrashIcon(true)}
+      onMouseLeave={() => setTrashIcon(false)}
+      className={styles.wrapItem}
+    >
       <div className={styles.borderCard}>
-        <Link to={link}>
-        <div className={styles.wrapImg}>
-          <img src={images} className={styles.imgItem} />
-        </div>
+        <Link to={link || "/"}>
+          <div className={styles.wrapImg}>
+            <img src={images} className={styles.imgItem} />
+          </div>
 
+          <p className={styles.titleCard}>{title}</p>
+          <span className={styles.descriptionCard}>{description}</span>
 
-        <p className={styles.titleCard}>{title}</p>
-        <span className={styles.descriptionCard}>{description}</span>
-
-        <span className={styles.readMore}>Read more</span>
+          <span className={styles.readMore}>Read more</span>
         </Link>
         <div className={styles.wrapPrice}>
-        <Link  to={link}>
-        <div>
-            <p className={styles.priceTitle}>Price</p>
-            <p className={styles.price}>{price} $</p>
+          <Link to={link || "/"}>
+            <div>
+              <p className={styles.priceTitle}>Price</p>
+              <p className={styles.price}>{price} $</p>
+            </div>
+          </Link>
+
+          <div className={styles.wrapFavorite}>
+            <FaRegTrashAlt
+              onClick={deleteItem}
+              style={{ display: isTrachIcon ? "block" : "none" }}
+              className={styles.trash}
+              size={20}
+              color={"black"}
+            />
+            <Favorites onClick={onClick} isLike={isLike} />
           </div>
-        </Link>
-
-      <div className={styles.wrapFavorite}>
-      <FaRegTrashAlt 
-        onClick={deleteItem}
-      style={{display:isTrachIcon ? "block": "none"}} className={styles.trash} size={20} color={"black"}/>
-      <Favorites onClick={onClick} isLike={isLike} />
-
-      </div>
-
-          
         </div>
       </div>
     </div>

@@ -2,8 +2,11 @@ import styles from "../../App/Styles/Categories.module.css"
 import { useDispatch} from "react-redux";
 import { setCategoryType } from "../../Store/Slice/CategorySlice/CategorySlice";
 
-
-export const Categories = ({ list, active }) => {
+interface ICategory{
+    list:any,
+    active:string,
+}
+export const Categories = ({ list, active }:ICategory) => {
     const dispatch = useDispatch();
 
     if (!Array.isArray(list)) {

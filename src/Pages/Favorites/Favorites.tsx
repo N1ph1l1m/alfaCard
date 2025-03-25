@@ -4,6 +4,7 @@ import { setFavoriteState } from "../../Store/Slice/ShopSlice/ShopSlice";
 import { RootState } from "../../Store";
 import { useDispatch, useSelector } from "react-redux";
 import { Notification } from "../../Shared/Notification/Notification";
+import { deleteItem } from "../../Store/Slice/ShopSlice/ShopSlice";
 export const Favorites = () => {
     const dispatch = useDispatch();
     const shopState  = useSelector((state:RootState)=>state.shopSlice.shopState)
@@ -29,6 +30,7 @@ export const Favorites = () => {
       price={item.price}
       onClick={() => dispatch(setFavoriteState(item.id))}
       isLike={item.favorite}
+       deleteItem={()=>{dispatch(deleteItem(item.id))}}
     />
   ))}
             </>)

@@ -1,4 +1,4 @@
-import  { DetailedHTMLProps, HTMLAttributes } from 'react';
+import  { CSSProperties } from 'react';
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
@@ -6,7 +6,7 @@ interface INotification{
   title:string,
   titleLink?:string,
   link?:string,
-  style?:DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  style?:CSSProperties,
 }
 export const Notification = ({title,titleLink,link,style}:INotification) => {
   return (
@@ -22,7 +22,7 @@ export const Notification = ({title,titleLink,link,style}:INotification) => {
             <div className="info-prompt-wrap">
               <p >
                 {title}<br/>
-                <Link to={link}> <span className="info-prompt-link">{titleLink}</span></Link>
+                <Link to={link || "/" }> <span className="info-prompt-link">{titleLink}</span></Link>
               </p>
             </div>
           </div>
