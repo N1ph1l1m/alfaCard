@@ -15,7 +15,7 @@ export const Nav = () => {
   const listNav = () => {
     return (
       <>
-        <NavLink to="/" onClick={() => burgerLink()}>
+        <NavLink to="/alfaCard/" onClick={() => burgerLink()}>
           <li className={styles.listItem}>Home</li>
         </NavLink>
         <NavLink to="products/" onClick={() => burgerLink()}>

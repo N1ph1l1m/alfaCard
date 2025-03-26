@@ -66,6 +66,15 @@ export const CreateItem = () => {
       console.log(response.status);
       if (response.status === 200 || response.status === 201) {
         dispatch(createItem(formData));
+        alert("The product was created successfully");
+
+        setFormData((prev) => ({
+          title: "",
+          price: 0,
+          description: "",
+          categoryId: menuCategory[0]?.id || 0,
+          images: prev.images,
+        }));
       }
     } catch (error) {
       console.error("Error submitting form:", error);

@@ -33,7 +33,7 @@ export const ProductItem = ({
       className={styles.wrapItem}
     >
       <div className={styles.borderCard}>
-        <Link to={link || "/"}>
+        <Link to={link || "/alfaCard/"}>
           <div className={styles.wrapImg}>
             <img src={images} className={styles.imgItem} />
           </div>
@@ -44,7 +44,7 @@ export const ProductItem = ({
           <span className={styles.readMore}>Read more</span>
         </Link>
         <div className={styles.wrapPrice}>
-          <Link to={link || "/"}>
+          <Link to={link || "/alfaCard/"}>
             <div>
               <p className={styles.priceTitle}>Price</p>
               <p className={styles.price}>{price} $</p>

@@ -63,7 +63,7 @@ export const Product = () => {
     <div className={styles.wrapProduct}>
       <div className={styles.wrapHome}>
         {" "}
-        <Link to="/">
+        <Link to="/alfaCard/">
           <button className={styles.buttonLink}>
             <FaHome />
             Home

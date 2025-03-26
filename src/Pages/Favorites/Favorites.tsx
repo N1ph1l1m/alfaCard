@@ -38,7 +38,7 @@ export const Favorites = () => {
           return(
           <Notification
           style={{margin:"100px auto"}}
-            link={"/"}
+            link={"/alfaCard/"}
               title="The list of favorite cards is empty"
              titleLink={"please go to the main menu and select the card ->"}/>
           )
