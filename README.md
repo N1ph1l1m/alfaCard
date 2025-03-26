@@ -15,6 +15,7 @@
   <p> 1. Clone the Repository</p>
   
     git clone https://github.com/N1ph1l1m/alfaCard
+    cd alfaCard
     
   <p>2. Install Dependencies</p>
   
